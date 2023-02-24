@@ -15,14 +15,7 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v3.0.0
-        
-      - name: install a project with a clean slate
-        run: |
-          npm ci
-          $(npm bin)/cypress cache path
-          $(npm bin)/cypress cache list
-          $(npm bin)/cypress verify
-      
-      - name: run cypress tests
-        run: npm run test
+
+      - name: Install and run Cypress tests
+        uses: cypress-io/github-action@v5
         continue-on-error: true
